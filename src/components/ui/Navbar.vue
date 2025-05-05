@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-red text-white shadow px-4 py-3 flex justify-between items-center">
+  <header class="bg-sky-500 text-white shadow px-4 py-3 flex justify-between items-center">
     <h1 class="text-xl font-bold">Mi Catálogo</h1>
     <button class="relative">
       🛒
