@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-sky-500 rounded-xl shadow-md overflow-hidden flex flex-col">
+  <div class="bg-sky-500 rounded-xl shadow-md overflow-hidden flex flex-col w-[370px]">
     <img :src="image" alt="producto" class="w-full h-40 object-cover" />
     <div class="p-3">
       <h3 class="text-lg font-semibold mb-1">{{ name }}</h3>
