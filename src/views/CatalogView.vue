@@ -1,22 +1,17 @@
 <template>
   <AppLayout />
-  <!-- <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"> -->
-  <!-- <div class="flex flex-row flex-wrap bg-green-950"> -->
-  <div class="grid grid-cols-5 gap-6 bg-green-950">
-    <ProductCard
-      v-for="(product, index) in products"
-      :key="index"
-      v-bind="product"
-      class="grow-3"
-    />
-  </div>
-  <!-- </div> -->
-  <!-- </AppLayout> -->
+  <MyRow justify="center">
+    <MyColumn v-for="(product, index) in products" :key="index" sm="6" md="4" lg="3" xl="3" 2xl="2">
+      <ProductCard v-bind="product" />
+    </MyColumn>
+  </MyRow>
 </template>
 
 <script setup lang="ts">
 import AppLayout from '@/layout/AppLayout.vue'
 import ProductCard from '@/components/catalog/ProductCard.vue'
+import MyRow from '@/components/myComponents/MyRow.vue'
+import MyColumn from '@/components/myComponents/MyColumn.vue'
 
 const products = Array.from({ length: 10 }).map((_, i) => ({
   name: `Producto # ${i + 1}`,
