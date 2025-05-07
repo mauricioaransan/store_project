@@ -1,5 +1,4 @@
 <template>
-  <AppLayout />
   <MyRow justify="center">
     <MyColumn v-for="(product, index) in products" :key="index" sm="6" md="4" lg="3" xl="3" 2xl="2">
       <ProductCard :product="product" />
@@ -8,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import AppLayout from '@/layout/AppLayout.vue'
 import ProductCard from '@/components/catalog/ProductCard.vue'
 import MyRow from '@/components/myComponents/MyRow.vue'
 import MyColumn from '@/components/myComponents/MyColumn.vue'

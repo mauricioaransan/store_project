@@ -16,7 +16,6 @@ export const useCartStore = defineStore('cart', {
       const found = this.items.find((item) => item.id === product.id)
       if (found) {
         found.quantity++
-        // this.quantity =
       } else {
         this.items.push({ ...product, quantity: 1 })
       }
@@ -24,11 +23,22 @@ export const useCartStore = defineStore('cart', {
     removeProduct(id: any) {
       this.items = this.items.filter((item) => item.id !== id)
     },
+    increaseQuantity(id: string) {
+      const item = this.items.find((i) => i.id === id)
+      if (item) item.quantity++
+    },
+    decreaseQuantity(id: string) {
+      const item = this.items.find((i) => i.id === id)
+      if (item && item.quantity > 1) {
+        item.quantity--
+      } else {
+        this.removeProduct(id)
+      }
+    },
     clearCart() {
       this.items = []
     },
     getTotal() {
-      console.log(this.items)
       return this.items.reduce((total, item) => total + item.price * item.quantity, 0)
     },
     getTotalCountItem() {

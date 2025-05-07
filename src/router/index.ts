@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CatalogView from '@/views/CatalogView.vue'
+import CartView from '@/views/CartView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     component: CatalogView,
   },
   {
+    path: '/cart',
+    name: 'Cart',
+    component: CartView,
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -34,20 +40,16 @@ const router = createRouter({
   routes: routes,
 })
 
-router.beforeEach((to, from, next) => {
-  // Verificar si la ruta solicitada existe en las rutas definidas
-  const exists = routes.some((route) => route.path === to.path)
-  if (!exists) {
-    // Si la ruta no existe, redirigir al menú principal
-    next(`/catalog`)
-
-    // next(`/smartlink/test`);
-
-    // next(`/principalPage`);
-  } else {
-    // Si la ruta existe, continuar con la navegación normalmente
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   // Verificar si la ruta solicitada existe en las rutas definidas
+//   const exists = routes.some((route) => route.path === to.path)
+//   if (!exists) {
+//     // Si la ruta no existe, redirigir al menú principal
+//     next(`/catalog`)
+//   } else {
+//     // Si la ruta existe, continuar con la navegación normalmente
+//     next()
+//   }
+// })
 
 export default router
