@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 max-w-4xl mx-auto bg-sky-200">
+  <div class="p-4 max-w-4xl mx-auto bg-mint-500">
     <h1 class="text-2xl font-semibold mb-6">Mi Carrito</h1>
 
     <div v-if="items.length" class="space-y-4">
@@ -16,21 +16,24 @@
         <div class="flex items-center gap-2">
           <button
             @click="decreaseQuantity(item.id)"
-            class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+            class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 hover:cursor-pointer"
           >
             -
           </button>
           <span>{{ item.quantity }}</span>
           <button
             @click="increaseQuantity(item.id)"
-            class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+            class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 hover:cursor-pointer"
           >
             +
           </button>
         </div>
-        <button @click="removeProduct(item.id)" class="text-red-500 hover:text-red-600">
-          <svg width="20" height="28">
-            <use xlink:href="../assets/sprite.svg#whatsapp" />
+        <button
+          @click="removeProduct(item.id)"
+          class="px-2 py-1 rounded bg-red-400 hover:bg-red-600 hover:cursor-pointer"
+        >
+          <svg width="20" height="23">
+            <use xlink:href="../assets/sprite.svg#deleteicon" />
           </svg>
         </button>
       </div>
