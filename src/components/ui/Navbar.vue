@@ -2,6 +2,9 @@
   <header class="bg-sky-500 text-white shadow px-4 py-3 flex justify-between items-center">
     <h1 class="text-xl font-bold">Mi Catálogo</h1>
     <h4>S/. {{ totalPrice }}.00</h4>
+    <button aria-label="Lista de carrito" class="relative" @click="showCatalogView">
+      catalogo
+    </button>
     <button aria-label="Lista de carrito" class="relative" @click="showCartView">
       🛒
       <span class="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">
@@ -22,5 +25,8 @@ const totalPrice = computed(() => cart.getTotal())
 
 function showCartView() {
   router.push('/cart')
+}
+function showCatalogView() {
+  router.push('/catalog')
 }
 </script>

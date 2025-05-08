@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 max-w-4xl mx-auto">
+  <div class="p-4 max-w-4xl mx-auto bg-sky-200">
     <h1 class="text-2xl font-semibold mb-6">Mi Carrito</h1>
 
     <div v-if="items.length" class="space-y-4">
@@ -29,7 +29,9 @@
           </button>
         </div>
         <button @click="removeProduct(item.id)" class="text-red-500 hover:text-red-600">
-          Quitar
+          <svg width="20" height="28">
+            <use xlink:href="../assets/sprite.svg#whatsapp" />
+          </svg>
         </button>
       </div>
 
@@ -44,7 +46,7 @@
         </button>
         <button
           @click="goToWhatsapp"
-          class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600"
         >
           Enviar por WhatsApp
         </button>
