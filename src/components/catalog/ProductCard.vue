@@ -7,7 +7,7 @@
       <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">{{ product.name }}</h3>
       <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{{ product.description }}</p>
       <div class="mt-3 flex items-center justify-between">
-        <span class="text-white font-bold text-base">S/ {{ product.price }}</span>
+        <span class="dark:text-white text-black font-bold text-base">S/ {{ product.price }}</span>
         <button
           class="bg-green-600 font-bold rounded-xl px-4 py-1 text-sm hover:bg-green-800 hover:text-white transition"
           @click="handleAddToCart"
