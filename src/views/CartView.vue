@@ -12,6 +12,12 @@
         <div class="flex-1">
           <h2 class="text-lg font-medium">{{ item.name }}</h2>
           <p class="text-sm text-gray-500">S/ {{ item.price.toFixed(2) }}</p>
+          <button
+            class="bg-green-600 font-bold rounded-xl px-4 py-1 text-sm hover:bg-green-800 hover:text-white transition hover:cursor-pointer"
+            @click="showDetails(item.id)"
+          >
+            detalles
+          </button>
         </div>
         <div class="flex items-center gap-2">
           <button
@@ -64,7 +70,9 @@
 import { computed } from 'vue'
 import { useCartStore } from '@/stores/cart'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const cartStore = useCartStore()
 const { items } = storeToRefs(cartStore)
 const { removeProduct, increaseQuantity, decreaseQuantity, clearCart } = cartStore
@@ -73,5 +81,9 @@ const totalPrice = computed(() => cartStore.getTotal())
 function goToWhatsapp() {
   const message = encodeURIComponent(cartStore.getFormattedMessage())
   window.open(`https://wa.me/51934830545?text=${message}`, '_blank')
+}
+
+function showDetails(id: string) {
+  router.push(`/product/${id}`)
 }
 </script>

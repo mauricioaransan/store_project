@@ -4,11 +4,15 @@
   >
     <h1 class="text-xl font-bold">Mi Catálogo</h1>
 
-    <button aria-label="Lista de carrito" class="relative" @click="showCatalogView">
+    <button
+      aria-label="Lista de carrito"
+      class="relative hover:cursor-pointer"
+      @click="showCatalogView"
+    >
       catalogo
     </button>
     <div class="flex items-center gap-4">
-      <button @click="toggleDarkMode" class="text-sm border px-2 py-1 rounded">
+      <button @click="toggleDarkMode" class="text-sm border px-2 py-1 rounded hover:cursor-pointer">
         {{ isDarkMode ? 'Modo Claro' : 'Modo Oscuro' }}
       </button>
     </div>

@@ -9,7 +9,13 @@
       <div class="mt-3 flex items-center justify-between">
         <span class="dark:text-white text-black font-bold text-base">S/ {{ product.price }}</span>
         <button
-          class="bg-green-600 font-bold rounded-xl px-4 py-1 text-sm hover:bg-green-800 hover:text-white transition"
+          class="bg-green-600 font-bold rounded-xl px-4 py-1 text-sm hover:bg-green-800 hover:text-white transition hover:cursor-pointer"
+          @click="showDetails"
+        >
+          detalles
+        </button>
+        <button
+          class="bg-green-600 font-bold rounded-xl px-4 py-1 text-sm hover:bg-green-800 hover:text-white transition hover:cursor-pointer"
           @click="handleAddToCart"
         >
           Agregar
@@ -21,6 +27,9 @@
 
 <script setup lang="ts">
 import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 let props = defineProps<{
   product: {
     id: string
@@ -34,7 +43,10 @@ let props = defineProps<{
 const cart = useCartStore()
 
 function handleAddToCart() {
-  // console.log(props.product)
   cart.addProduct(props.product)
+}
+
+function showDetails() {
+  router.push(`/product/${props.product.id}`)
 }
 </script>

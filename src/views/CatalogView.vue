@@ -11,11 +11,16 @@ import ProductCard from '@/components/catalog/ProductCard.vue'
 import MyRow from '@/components/myComponents/MyRow.vue'
 import MyColumn from '@/components/myComponents/MyColumn.vue'
 
-const products = Array.from({ length: 10 }).map((_, i) => ({
-  id: `${i}`,
-  name: `Producto # ${i + 1}`,
-  image: `https://picsum.photos/600/200?random=${i + 1}`,
-  description: 'Descripción breve del producto.',
-  price: 10 * (i + 1),
-}))
+import { useProductStore } from '@/stores/products'
+import { onMounted, ref } from 'vue'
+import { fetchProducts } from '@/services/productService'
+const productStore = useProductStore()
+
+const products = ref<any>([])
+
+onMounted(async () => {
+  productStore.allItems(products)
+  let items = await fetchProducts()
+  products.value = items
+})
 </script>
