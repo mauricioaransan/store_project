@@ -38,19 +38,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useProductStore } from '@/stores/products'
+// import { useProductStore } from '@/stores/products'
 import { useCartStore } from '@/stores/cart'
+import { getAllProductsByID } from '@/services/productService'
 
 const route = useRoute()
-const productStore = useProductStore()
+// const productStore = useProductStore()
 const cartStore = useCartStore()
-const allProducts = productStore.getAllItems()
+// const allProducts = productStore.getAllItems()
 
 const product = ref<any>(null)
 
-onMounted(() => {
+onMounted(async () => {
   const id = route.params.id
-  product.value = allProducts.find((p) => p.id == id)
+  let items = await getAllProductsByID(id.toString())
+  product.value = items
 
   // if (product.value) {
   //   relatedProducts.value = allProducts
