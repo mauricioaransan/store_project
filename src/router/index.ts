@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import CatalogView from '@/views/CatalogView.vue'
 import CartView from '@/views/CartView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
+import AdminView from '@/views/AdminView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cart',
     name: 'Cart',
     component: CartView,
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: AdminView,
   },
   {
     path: '/product/:id',

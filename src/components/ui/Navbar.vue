@@ -7,6 +7,13 @@
     <button
       aria-label="Lista de carrito"
       class="relative hover:cursor-pointer"
+      @click="showAdminView"
+    >
+      Admin
+    </button>
+    <button
+      aria-label="Lista de carrito"
+      class="relative hover:cursor-pointer"
       @click="showCatalogView"
     >
       catalogo
@@ -55,6 +62,9 @@ function showCartView() {
 }
 function showCatalogView() {
   router.push('/catalog')
+}
+function showAdminView() {
+  router.push('/admin')
 }
 
 const isDarkMode = ref(false)
